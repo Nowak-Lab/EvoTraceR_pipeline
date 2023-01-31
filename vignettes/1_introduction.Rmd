@@ -1,0 +1,71 @@
+---
+title: Introduction
+output: html_document
+---
+
+## Overview
+
+*EvoTraceR* is an R package to identifiy and analyse Amplicon Sequence Variants after performing an experiment through the EVoBC kit. 
+
+```{r include=FALSE}
+library(knitr)
+opts_chunk$set(
+concordance = TRUE,
+background = "#f3f3ff"
+)
+```
+
+## Installing EvoTraceR
+
+The R version of *EvoTraceR* can be installed from Github. To do so, we need to install the R packages *EvoTraceR* depends on and the devtools package. 
+
+
+```{r eval=FALSE}
+# install EvoTraceR dependencies
+if (!require("devtools")) install.packages("devtools")
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+if (!require("tidyverse")) install.packages("tidyverse")
+if (!require("cli")) install.packages("cli")
+if (!require("Biostrings")) BiocManager::install("Biostrings")
+if (!require("benthos")) install.packages("benthos")
+#if (!require("lemon")) install.packages("lemon")
+if (!require("scales")) install.packages("scales")
+if (!require("utils")) install.packages("utils")
+if (!require("methods")) install.packages("methods")
+if (!require("data.table")) install.packages("data.table")
+if (!require("ggtree")) BiocManager::install("ggtree")
+if (!require('foreach')) install.packages('foreach')
+if (!require('reticulate')) install.packages('reticulate')
+
+Users should also have a virtual enviroment (created for example thorugh anaconda), where the python dependencies are installed.
+In case users want this to be taken care of automatically, they can unload reticulate (in case it was already loaded) prior to installing EvoTraceR. Otherwise, they can setup an anaconda enviroment where all dependencies ahve been manually installed.
+The dependencies are the following:
+Numpy version 1.21.5
+Numba
+Cassiopeia-lineage
+umi_tools
+```{r eval=FALSE}
+# Run only if reticulate has been manually setup:
+# library(reticulate)
+# reticulate::use_condaenv('EvoTraceR_enviroment')
+# Install EvoTraceR
+devtools::install_github("Nowak-Lab/EvoTraceR", ref = "master")
+```
+
+
+In order to handle fastq files with forward and reverse reads, EvoTraceR uses trimmomatic and flash tools to perform adapters trimming, discard low quality bases and merge
+forward and reverse reads. In order to use such packages, users should install [trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic) and [flash]{https://ccb.jhu.edu/software/FLASH/}.
+```{r eval=FALSE}
+# load EvoTraceR library
+library("EvoTraceR")
+```
+
+Finally, in case reticulate is setpup automatically through the install process, users need to call the following function to finish setup and then restart R. 
+```{r eval=FALSE}
+setup_reticulate()
+```
+
+## Debug
+
+Please feel free to contact us if you have problems running our tool at l.patruno@campus.unimib.it. 

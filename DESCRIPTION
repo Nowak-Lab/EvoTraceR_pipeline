@@ -1,0 +1,57 @@
+Package: EvoTraceR
+Version: 0.99.27
+Date: 2023-01-09
+Title: EvoTraceR
+Authors@R: c(person("Lucrezia","Patruno",role=c("cre","aut"),email="l.patruno@campus.unimib.it"),
+            person("Daniele", "Ramazzotti", role=c("aut"),email="daniele.ramazzotti@unimib.it", comment = c(ORCID = "0000-0002-6087-2666")),
+            person("Dawid","Nowak",role=c("aut"),email="dgn2001@med.cornell.edu"))
+Depends:
+    R (>= 4.1.0)
+Config/reticulate:
+  list(
+    packages = list(
+      list(package = 'numpy', version = '1.21.5', pip = TRUE),
+      list(package = 'numba', pip = TRUE)
+      )
+  )
+Imports:
+    ggplot2,
+    dplyr,
+    cli,
+    Biostrings,
+    benthos,
+    scales,
+    utils,
+    tidyr,
+    tibble,
+    methods,
+    stringr,
+    forcats,
+    data.table,
+    pheatmap,
+    ggtree,
+    plyr,
+    ape,
+    foreach,
+    purrr,
+    reticulate
+Suggests:
+    BiocGenerics,
+    BiocStyle,
+    testthat,
+    knitr
+Name:
+    EvoTraceR
+Description:
+    Package to identifiy and analyse Amplicon Sequence Variants after performing an experiment through the EVoBC kit.
+Encoding: UTF-8
+LazyData: TRUE
+License: file LICENSE
+URL: https://github.com/Nowak-Lab/EvoTraceR
+BugReports: https://github.com/Nowak-Lab/EvoTraceR
+biocViews: 
+    BiomedicalInformatics,
+    SingleCell,
+    SomaticMutation
+RoxygenNote: 7.2.3
+VignetteBuilder: knitr
